@@ -1,0 +1,300 @@
+/* ---------------------------------------------------------
+   Karachi Weather — design tokens
+   Palette drawn from the city itself: Arabian Sea dusk,
+   sunbaked sandstone, the burnt orange of Clifton sunsets.
+   --------------------------------------------------------- */
+:root{
+  --dusk-900: #1B2340;      /* deep indigo sky */
+  --dusk-700: #2A3560;
+  --sea-600:  #2F6F6B;      /* Arabian Sea teal */
+  --sea-300:  #8FBFB0;      /* sea foam accent */
+  --sand-100: #EFE6D3;      /* sandstone background */
+  --sand-200: #E4D6B8;
+  --brick-600:#B5502C;      /* sunset brick, warm accent */
+  --ink-900:  #1C1B17;
+  --ink-600:  #4A4740;
+  --paper:    #FBF8F1;
+
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-card: 4px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background: var(--sand-100);
+  color: var(--ink-900);
+  font-family: var(--sans);
+  line-height:1.45;
+}
+
+.tide-line{
+  height:6px;
+  background: linear-gradient(90deg, var(--sea-600), var(--sea-300), var(--brick-600));
+}
+
+/* ---------- topbar ---------- */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding: 22px 28px 14px;
+  max-width:1040px;
+  margin:0 auto;
+}
+.topbar__mark{
+  font-family: var(--serif);
+  font-weight:500;
+  font-size:1.15rem;
+  letter-spacing:0.01em;
+}
+.topbar__mark span{
+  color: var(--sea-600);
+  font-style: italic;
+}
+.topbar__clock{
+  font-family: var(--sans);
+  font-size:0.85rem;
+  color: var(--ink-600);
+  font-variant-numeric: tabular-nums;
+}
+
+main{
+  max-width:1040px;
+  margin:0 auto;
+  padding: 0 28px 60px;
+}
+
+/* ---------- hero ---------- */
+.hero{
+  background: linear-gradient(160deg, var(--dusk-900) 0%, var(--dusk-700) 55%, var(--sea-600) 100%);
+  border-radius: var(--radius-card);
+  color: var(--paper);
+  padding: 40px 36px;
+  margin-top: 8px;
+  min-height: 220px;
+  display:flex;
+  flex-wrap:wrap;
+  gap: 32px;
+  align-items:flex-end;
+  position:relative;
+  overflow:hidden;
+}
+.hero__loading{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size:1.1rem;
+  color: var(--sea-300);
+}
+.hero__place{
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight:500;
+  margin: 0 0 4px;
+}
+.hero__place small{
+  display:block;
+  font-family: var(--sans);
+  font-style:normal;
+  font-size:0.85rem;
+  color: var(--sea-300);
+  font-weight:500;
+  margin-top:6px;
+}
+.hero__main{
+  display:flex;
+  align-items:flex-start;
+  gap:18px;
+}
+.hero__temp{
+  font-family: var(--serif);
+  font-size: 5rem;
+  line-height:1;
+  font-weight:400;
+}
+.hero__temp sup{
+  font-size:2rem;
+  font-weight:400;
+  vertical-align: 0.9em;
+}
+.hero__meta{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding-top:10px;
+  font-size:0.92rem;
+  color: var(--sand-100);
+}
+.hero__condition{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1.15rem;
+  color:#fff;
+}
+.hero__stats{
+  margin-left:auto;
+  display:grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 22px 28px;
+  font-size:0.85rem;
+}
+.hero__stats div{ min-width:74px; }
+.hero__stats b{
+  display:block;
+  font-family:var(--serif);
+  font-size:1.25rem;
+  font-weight:500;
+  color:#fff;
+}
+.hero__stats span{
+  color: var(--sea-300);
+}
+
+/* ---------- hourly strip ---------- */
+.strip{ margin-top: 34px; }
+.strip__label{
+  font-family: var(--sans);
+  font-size:0.8rem;
+  font-weight:600;
+  color: var(--ink-600);
+  margin: 0 0 12px;
+}
+.strip__row{
+  display:flex;
+  gap:2px;
+  overflow-x:auto;
+  padding-bottom:6px;
+}
+.hour{
+  flex: 0 0 auto;
+  min-width: 76px;
+  text-align:center;
+  padding: 14px 8px;
+  background: var(--paper);
+  border-bottom: 3px solid var(--sand-200);
+}
+.hour__time{ font-size:0.78rem; color:var(--ink-600); }
+.hour__temp{
+  font-family: var(--serif);
+  font-size:1.3rem;
+  margin:6px 0 2px;
+}
+.hour__icon{ font-size:1.3rem; }
+
+/* ---------- areas ---------- */
+.areas{ margin-top:48px; }
+.areas__head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+.areas__head h2{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:1.4rem;
+  margin:0;
+}
+.areas__head p{
+  margin:0;
+  max-width:420px;
+  font-size:0.88rem;
+  color: var(--ink-600);
+}
+.areas__grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+  gap:2px;
+  background: var(--sand-200);
+}
+.area-card{
+  background: var(--paper);
+  border:none;
+  text-align:left;
+  padding: 16px 16px 14px;
+  cursor:pointer;
+  font-family:var(--sans);
+  color: var(--ink-900);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  transition: background 0.15s ease;
+}
+.area-card:hover{ background: #fff; }
+.area-card:focus-visible{ outline:2px solid var(--brick-600); outline-offset:-2px; }
+.area-card.is-active{
+  background: var(--sea-600);
+  color: var(--paper);
+}
+.area-card.is-active .area-card__temp{ color:#fff; }
+.area-card.is-active .area-card__cond{ color: var(--sea-300); }
+.area-card__name{ font-size:0.92rem; font-weight:500; }
+.area-card__temp{
+  font-family: var(--serif);
+  font-size:1.6rem;
+  color: var(--brick-600);
+}
+.area-card__cond{ font-size:0.78rem; color: var(--ink-600); }
+
+/* ---------- daily ---------- */
+.daily{ margin-top:48px; }
+.daily h2{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:1.4rem;
+  margin:0 0 16px;
+}
+.daily__list{
+  display:flex;
+  flex-direction:column;
+}
+.day-row{
+  display:grid;
+  grid-template-columns: 100px 1fr 90px 140px;
+  align-items:center;
+  gap:16px;
+  padding: 12px 4px;
+  border-bottom:1px solid var(--sand-200);
+  font-size:0.9rem;
+}
+.day-row__name{ font-weight:500; }
+.day-row__cond{ color: var(--ink-600); }
+.day-row__icon{ font-size:1.1rem; }
+.day-row__range{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  justify-content:flex-end;
+  font-family:var(--serif);
+}
+.day-row__range .lo{ color: var(--ink-600); font-size:0.95rem; }
+.day-row__range .hi{ font-size:1.1rem; }
+.day-row__bar{
+  height:4px;
+  border-radius:2px;
+  background: linear-gradient(90deg, var(--sea-300), var(--brick-600));
+}
+
+/* ---------- footer ---------- */
+.foot{
+  margin-top:40px;
+  font-size:0.78rem;
+  color: var(--ink-600);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 640px){
+  .hero{ padding:28px 20px; }
+  .hero__temp{ font-size:3.6rem; }
+  .hero__stats{ margin-left:0; grid-template-columns: repeat(3, 1fr); width:100%; }
+  .day-row{ grid-template-columns: 76px 1fr 110px; }
+  .day-row__bar{ display:none; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; }
+}

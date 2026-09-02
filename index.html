@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karachi Weather — live forecast by area</title>
+<meta name="description" content="Live weather and forecast for Karachi's major areas: Clifton, DHA, Gulshan-e-Iqbal, Saddar and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="tide-line" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="topbar__mark">Karachi<span>weather</span></div>
+  <div class="topbar__clock" id="localClock">—</div>
+</header>
+
+<main>
+  <section class="hero" id="hero" aria-live="polite">
+    <div class="hero__loading" id="heroLoading">Reading the sky over Karachi…</div>
+  </section>
+
+  <section class="strip" aria-label="Hourly outlook">
+    <h2 class="strip__label">Next hours</h2>
+    <div class="strip__row" id="hourlyRow"></div>
+  </section>
+
+  <section class="areas" aria-label="Areas of Karachi">
+    <div class="areas__head">
+      <h2>Areas</h2>
+      <p>Tap an area for its forecast. Coastal Clifton runs cooler than inland Gulshan by a few degrees most afternoons.</p>
+    </div>
+    <div class="areas__grid" id="areaGrid"></div>
+  </section>
+
+  <section class="daily" aria-label="5-day forecast">
+    <h2>Five days ahead</h2>
+    <div class="daily__list" id="dailyList"></div>
+  </section>
+
+  <footer class="foot">
+    <p>Forecast data from Open‑Meteo. Times shown in Pakistan Standard Time.</p>
+  </footer>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
